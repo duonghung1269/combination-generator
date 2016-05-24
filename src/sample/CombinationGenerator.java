@@ -72,12 +72,13 @@ public class CombinationGenerator {
 			NumberWrapper isValidNumber = isValidNumber(tmp); 
 			if (isValidNumber.isValid) {				
 				System.out.println(prefix + tmp);
+				count++;
 				startNum = startNum.add(new BigInteger("1"));				
 			} else {
 				startNum = new BigInteger(isValidNumber.numString);
 			}
 			
-			count++;
+			
 			
 			if (count % 10000000 == 0) {
 				File file = new File(thread_name + "_result_" + System.currentTimeMillis() + "_" + startNum + ".txt");
