@@ -4,9 +4,30 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.math.BigInteger;
 
 public class Test {
+	public void start(String[] ads) throws IOException {
+		CombinationGenerator cg = new CombinationGenerator();
+		cg.thread_name = ads[2];
+		
+		String startNum = ads[0].trim();
+		String endNum = ads[1].trim();
+		
+		File file = new File(ads[2] + "_result_" + System.currentTimeMillis() + ".txt");
+		FileOutputStream fos = new FileOutputStream(file);
+
+      // Create new print stream for file.
+		PrintStream ps = new PrintStream(fos);
+
+      // Set file print stream.
+      	System.setOut(ps);
+		
+		long start = System.currentTimeMillis();
+		cg.generate(startNum, endNum);
+		long end = System.currentTimeMillis();
+		System.out.println(ads[2] + "_" + (end - start)/1000/60);
+	}
+	
 	public static void main(String[] ads) throws IOException {
 		CombinationGenerator cg = new CombinationGenerator();
 		cg.thread_name = ads[2];

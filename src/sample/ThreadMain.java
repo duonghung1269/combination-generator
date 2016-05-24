@@ -7,8 +7,11 @@ public class ThreadMain {
 		Thread thread1 = new Thread() {
 			public void run() {
 				try {
-					Test.main(new String[]{"900101001010010100101001010010",
-										   "900101001010010100101091010010",
+//					Test.main(new String[]{"900101001010010100101999899989",
+//										   "900101001010010100501001010010",
+//										   "thread1"});
+					new Test().start(new String[]{"900101001010010100101999899989",
+										   "900101001010010100501001010010",
 										   "thread1"});
 				} catch (IOException e) {
 					System.out.println("thread1 exception");
@@ -19,9 +22,12 @@ public class ThreadMain {
 		Thread thread2 = new Thread() {
 			public void run() {
 				try {
-					Test.main(new String[]{"900101001010010100101091010011",
-							   "900101001010010100101901010011",
-							   "thread2"});
+//					Test.main(new String[]{"900101001010010100501001010010",
+//										   "900101001010010100999899989998",
+//										   "thread2"});
+					new Test().start(new String[]{"900101001010010100501001010010",
+										   "900101001010010100999899989998",
+										   "thread2"});
 				} catch (IOException e) {
 					System.out.println("thread2 exception");
 				}
