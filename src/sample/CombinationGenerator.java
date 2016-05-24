@@ -79,7 +79,7 @@ public class CombinationGenerator {
 			
 			count++;
 			
-			if (count % 30000000 == 0) {
+			if (count % 10000000 == 0) {
 				File file = new File(thread_name + "_result_" + System.currentTimeMillis() + "_" + startNum + ".txt");
 		        FileOutputStream fos = new FileOutputStream(file);
 
