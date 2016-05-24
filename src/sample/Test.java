@@ -6,8 +6,12 @@ import java.math.BigInteger;
 public class Test {
 	public static void main(String[] ads) throws IOException {
 		CombinationGenerator cg = new CombinationGenerator();
-		String startNum = "001010010100101001010010100101";
-		String endNum   = "002010010100101001010010100101";
+//		String startNum = "001010010100101001010010100101";
+//		String endNum   = "002010010100101001010010100101";
+		
+		String startNum = "900101001010010100101001010010";
+		String endNum   = "999899989998999899989998999899";
+		
 //		BigInteger b = new BigInteger();
 //		System.out.println(b);
 		cg.generate(startNum, endNum);

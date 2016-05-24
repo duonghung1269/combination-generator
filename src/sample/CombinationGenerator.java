@@ -43,6 +43,7 @@ public class CombinationGenerator {
 		BigInteger endNum = new BigInteger(endNumStr);
 		String tmp = "";
 		long count = 0;
+		String prefix = "0.";
 		do {
 //			tmp = String.format("%30s", startNum.toString());
 			tmp = StringUtils.leftPad(startNum.toString(), 30, "0");
@@ -51,7 +52,7 @@ public class CombinationGenerator {
 			
 			if (isValidNumber(tmp)) {
 //				results.add(tmp);
-				System.out.println(tmp);
+				System.out.println(prefix + tmp);
 			}
 			
 			startNum = startNum.add(new BigInteger("1"));
