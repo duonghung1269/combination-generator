@@ -116,6 +116,28 @@ public class CombinationGenerator {
 			if (index != -1) { // invalid number
 				String[] nums = numStr.split("");
 				int lastIndex = index + rulePattern.length();
+				
+				// reset all 0 after lastIndex, follow format should be 0010100101
+				for (int i = lastIndex + 1; i < numStr.length(); i++) {
+					int distance = (i - lastIndex) % 6;
+					switch (distance) {
+						case 0: 
+						case 1:
+						case 2:
+						case 4:
+							nums[i] = "0";
+							break;						
+						case 3:
+						case 5:
+							nums[i] = "1";
+							break;
+						default:
+							break;
+					}
+					
+					nums[i] = "0";
+				}
+				
 				int remain = 0;
 				do {
 					int n = Byte.parseByte(nums[lastIndex]) + 1 + remain;
