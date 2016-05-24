@@ -64,7 +64,7 @@ public class CombinationGenerator {
 //			
 //		} while (count < 10000000000l);
 		
-		while (startNum.compareTo(endNum) <= 0) {
+		while (startNum.compareTo(endNum) < 0) {
 			// TODO: temporary comment this one cause dont have prefix 0
 //			tmp = StringUtils.leftPad(startNum.toString(), 30, "0");
 			tmp = startNum.toString();

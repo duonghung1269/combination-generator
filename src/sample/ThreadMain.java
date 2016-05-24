@@ -21,7 +21,7 @@ public class ThreadMain {
 				try {
 					Test.main(new String[]{"900101001010010100101091010011",
 							   "900101001010010100101901010011",
-							   "thread1"});
+							   "thread2"});
 				} catch (IOException e) {
 					System.out.println("thread2 exception");
 				}
