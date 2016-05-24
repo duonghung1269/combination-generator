@@ -70,15 +70,14 @@ public class CombinationGenerator {
 			tmp = startNum.toString();
 
 			NumberWrapper isValidNumber = isValidNumber(tmp); 
-			if (isValidNumber.isValid) {				
-				System.out.println(prefix + tmp);
-				count++;
-				startNum = startNum.add(new BigInteger("1"));				
-			} else {
+			if (!isValidNumber.isValid) {	
 				startNum = new BigInteger(isValidNumber.numString);
+				continue;								
 			}
 			
-			
+			System.out.println(prefix + tmp);
+			count++;
+			startNum = startNum.add(new BigInteger("1"));
 			
 			if (count % 10000000 == 0) {
 				File file = new File(thread_name + "_result_" + System.currentTimeMillis() + "_" + startNum + ".txt");
