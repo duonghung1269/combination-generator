@@ -70,17 +70,17 @@ public class CombinationGenerator {
 			tmp = startNum.toString();
 
 			NumberWrapper isValidNumber = isValidNumber(tmp); 
-			if (!isValidNumber.isValid) {				
+			if (isValidNumber.isValid) {				
 				System.out.println(prefix + tmp);
-				startNum = new BigInteger(isValidNumber.numString);
+				startNum = startNum.add(new BigInteger("1"));				
 			} else {
-				startNum = startNum.add(new BigInteger("1"));
+				startNum = new BigInteger(isValidNumber.numString);
 			}
 			
 			count++;
 			
 			if (count % 30000000 == 0) {
-				File file = new File(thread_name + "_result_" + System.currentTimeMillis() + ".txt");
+				File file = new File(thread_name + "_result_" + System.currentTimeMillis() + "_" + startNum + ".txt");
 		        FileOutputStream fos = new FileOutputStream(file);
 
 		        // Create new print stream for file.
@@ -113,7 +113,7 @@ public class CombinationGenerator {
 	private NumberWrapper isValidNumber(String numStr) {
 		for (String rulePattern : exceptions) {
 			int index = numStr.lastIndexOf(rulePattern);
-			if (index != -1) {
+			if (index != -1) { // invalid number
 				String[] nums = numStr.split("");
 				int lastIndex = index + rulePattern.length();
 				int remain = 0;
